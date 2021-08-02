@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Loan Approval Model</title>
+
+</head>
+
+<body>
+
+<div class="login">
+
+    <div class="banner">
+
+        <h1>Loan Approval Model</h1>
+
+    </div>
+
+    <p> This model is created to predict if you qualify to get a certain amount of loan or not. <br>
+
+    </p>
+
+    <br> <br>
+
+    <form action="{{ url_for('predict')}}" method="post">
+
+        <label for="Gender">Gender </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Gender">Male
+
+        </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Gender">Female
+
+        </label>
+
+        <br><br>
+
+        <label for="Married"> Are you married? </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Married">Yes
+
+        </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Married">No
+
+        </label>
+
+        <br><br>
+
+        <label for="Dependents"> Number of dependents </label> 
+
+        <select id="Dependents" name="Dependents">
+
+            <option disabled selected value> -- Select an option -- </option>
+
+            <option value="0">0</option>
+
+            <option value="1">1</option>
+
+            <option value="2">2</option>
+
+            <option value="3+">3+</option>
+
+        </select>
+
+        <br><br>
+
+        <label for="Education"> Are you graduated? </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Education">Yes
+
+        </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Education">No
+
+        </label>
+
+        <br><br>
+
+        <label for="Self_Employed"> Are you self-employed? </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Self_Employed">Yes
+
+        </label>
+
+        <label class="radio-inline">
+
+            <input type="radio" name="Self_Employed">No
+
+        </label>
+
+        <br><br>
+
+        <label for="ApplicantIncome">Applicant Income</label>
+
+        <input type="text" name="ApplicantIncome" required="required" />
+
+        <br><br>
+
+        <label for="CoapplicantIncome">Coapplicant Income</label>
+
+        <input type="text" name="CoapplicantIncome" required="required" />
+
+        <br><br>
+
+        <label for="LoanAmount">Loan Amount</label>
+
+        <input type="text" name="LoanAmount" required="required" />
+
+        <br><br>
+
+        <label for="Loan_Amount_Term">Loan Amount Term</label> 
+
+        <input type="text" name="Loan_Amount_Term" placeholder="Term in days" required="required" />
+
+        <br><br>
+
+        <label for="Credit_History">Credit History</label> 
+
+        <select id="Credit_History" name="Credit_History">
+
+            <option disabled selected value> -- Select an option -- </option>
+
+            <option value="All Debts paid">All Debts paid</option>
+
+            <option value="Not paid">Not paid</option>
+
+        </select>
+
+        <br><br>
+
+        <label for="Property_Area">Property Area</label> ;
+
+        <select id="Property_Area" name="Property_Area">
+
+            <option disabled selected value> -- Select an option -- </option>
+
+            <option value="Rural">Rural</option>
+
+            <option value="Semiurban">Semiurban</option>
+
+            <option value="Urban">Urban</option>
+
+        </select>
+
+    <br><br>
+
+        <input type="submit", value = "Submit">
+
+    </form>
+
+    <br>
+
+    <br>
+
+      <br><br><h3>{{ prediction_text }}</h3>
+
+ </div>
+
+</body>
+
+</html>
